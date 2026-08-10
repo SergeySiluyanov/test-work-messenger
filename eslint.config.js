@@ -40,6 +40,7 @@ export default tseslint.config(
                 'error',
                 { prefer: 'type-imports', fixStyle: 'inline-type-imports' },
             ],
+            'vue/singleline-html-element-content-newline': 'off',
             'vue/html-indent': 'off',
             'vue/html-self-closing': 'off',
             'vue/multi-word-component-names': 'off',
@@ -63,11 +64,28 @@ export default tseslint.config(
         },
     },
     {
+        files: ['**/*.{ts,vue}'],
+        rules: {
+            'no-undef': 'off',
+        },
+    },
+    {
         files: ['vite.config.ts', 'eslint.config.js'],
         languageOptions: {
             globals: {
                 ...globals.node,
             },
+        },
+    },
+    {
+        files: ['server/**/*.cjs'],
+        languageOptions: {
+            globals: {
+                ...globals.node,
+            },
+        },
+        rules: {
+            '@typescript-eslint/no-require-imports': 'off',
         },
     },
     {
