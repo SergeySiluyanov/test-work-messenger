@@ -38,7 +38,7 @@ describe('messageStore', () => {
             id: '999',
             chatId: '1',
             text: 'Новое сообщение',
-            isMine: true,
+            isUser: true,
             createdAt: '2026-08-10T15:00:00.000Z',
         });
 
@@ -47,7 +47,7 @@ describe('messageStore', () => {
         const result = await store.createMessage('Новое сообщение');
         expect(result).toBe(true);
         expect(store.messages.at(-1)?.text).toBe('Новое сообщение');
-        expect(store.messages.at(-1)?.isMine).toBe(true);
+        expect(store.messages.at(-1)?.isUser).toBe(true);
     });
 
     it('Остается активным чат после отправки сообщения', async () => {
@@ -55,7 +55,7 @@ describe('messageStore', () => {
             id: '999',
             chatId: '1',
             text: 'Новое сообщение',
-            isMine: true,
+            isUser: true,
             createdAt: '2026-08-10T15:00:00.000Z',
         });
 
